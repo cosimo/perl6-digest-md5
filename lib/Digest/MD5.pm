@@ -4,12 +4,11 @@
 
 class Digest::MD5 {
 
+    pir::load_bytecode('Digest/MD5.pbc');
+
     multi method md5_hex (Str $message) {
 
-        pir::load_bytecode('Digest/MD5.pbc');
-
         my $md5_sum = Q:PIR {
-            load_bytecode 'Digest/MD5.pbc'
             .local pmc md5sum, md5_sum_get
             md5sum = get_root_global ['parrot'; 'Digest'], '_md5sum'
             $P0 = find_lex '$message'
