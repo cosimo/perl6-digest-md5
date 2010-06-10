@@ -1,0 +1,21 @@
+Perl6 Digest::MD5 module
+========================
+
+An interface-compatible port of Perl5 Digest::MD5 to Perl6.
+
+Cosimo Streppone (cosimo@cpan.org)
+
+
+Repository
+==========
+
+  <http://github.com/cosimo/perl6-digest-md5>
+
+
+Current status (2010-06-10)
+===========================
+
+After a bit of fiddling, perl6-digest-md5 runs just fine
+on parrot r45822, but it fails on newer parrot/rakudo versions
+with an obscure "failed find_method 'signature'" message.
+
