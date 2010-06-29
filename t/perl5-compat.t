@@ -11,11 +11,18 @@ my @cases = (
     ["a", "b"],      '187ef4436122d1cc2f40dc2b92f0eba0',
 );
 
+my $digest = Digest::MD5.new;
+
 for @cases -> $values, $md5 {
 
     is(
         Digest::MD5.md5_hex($values), $md5,
-        "MD5 of '$values' must be '$md5'"
+        "MD5 hex of '$values' must be '$md5' (static method)"
+    );
+   
+    is(
+        $digest.md5_hex($values), $md5,
+        "MD5 hex of '$values' must be '$md5' (instance method)"
     );
 
 }
