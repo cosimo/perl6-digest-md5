@@ -4,25 +4,31 @@
 
 class Digest::MD5 {
 
-    pir::load_bytecode('Digest/MD5.pbc');
+    # Use .pir, not .pbc!
+    # See https://trac.parrot.org/parrot/ticket/1694
+    pir::load_bytecode('Digest/MD5.pir');
 
-    multi method md5_hex (Str $message) {
+    multi method md5_hex (Str $str) {
 
-        my $md5_sum = Q:PIR {
-            .local pmc md5sum, md5_sum_get
-            md5sum = get_root_global ['parrot'; 'Digest'], '_md5sum'
-            $P0 = find_lex '$message'
-            $P1 = md5sum($P0)
-            md5_sum_get = get_root_global ['parrot'; 'Digest'], '_md5_hex'
-            %r = md5_sum_get($P1)
+        my $md5_hex = Q:PIR {
+            .local pmc f, g, str
+            str = find_lex '$str'
+            f = get_root_global ['parrot'; 'Digest'], '_md5sum'
+            $P1 = f(str)
+            g = get_root_global ['parrot'; 'Digest'], '_md5_hex'
+            $S0 = g($P1)
+            %r = box $S0
         };
 
-        return $md5_sum;
+        return $md5_hex;
     }
 
-    multi method md5_hex (@message) {
-        my Str $message = @message.join('');
-        return Digest::MD5.md5_hex($message);
+    multi method md5_hex (@str) {
+
+        my $str = @str.join("");
+        my $md5_hex = self.md5_hex($str);
+        return $md5_hex;
+
     }
 
 }
