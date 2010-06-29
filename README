@@ -12,10 +12,9 @@ Repository
   <http://github.com/cosimo/perl6-digest-md5>
 
 
-Current status (2010-06-10)
+Current status (2010-06-28)
 ===========================
 
-After a bit of fiddling, perl6-digest-md5 runs just fine
-on parrot r45822, but it fails on newer parrot/rakudo versions
-with an obscure "failed find_method 'signature'" message.
+Works with a small patch against parrot, documented here:
+  http://trac.parrot.org/parrot/ticket/1686
 

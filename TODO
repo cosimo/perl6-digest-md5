@@ -1,5 +1,8 @@
 [ ] Complete the full p5 Digest::MD5 interface
 [ ] Import some more test cases from the p5 test suite
-[ ] Fix the find_method 'signature' failure message
+
+--------------------------------------------------------
+
+[x] Fix the find_method 'signature' failure message
     on newer parrot/rakudo combinations
 
