@@ -12,7 +12,7 @@ Repository
   <http://github.com/cosimo/perl6-digest-md5>
 
 
-Current status (2010-06-28)
+Current status (2010-08-07)
 ===========================
 
 Works with a small patch against parrot, documented here:
