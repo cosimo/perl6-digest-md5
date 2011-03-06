@@ -2,7 +2,7 @@
 # Digest::MD5 Perl6 module
 #
 
-class Digest::MD5 {
+class Digest::MD5:auth<cosimo>:ver<0.02> {
 
     # Use .pir, not .pbc!
     # See https://trac.parrot.org/parrot/ticket/1694
