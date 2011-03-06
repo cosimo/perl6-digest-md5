@@ -12,9 +12,11 @@ Repository
   <http://github.com/cosimo/perl6-digest-md5>
 
 
-Current status (2010-08-07)
+Current status (2011-03-06)
 ===========================
 
-Works with a small patch against parrot, documented here:
-  http://trac.parrot.org/parrot/ticket/1686
+Works with:
+
+    This is Rakudo Perl 6, version 2011.02-43-gbfdd78d built on parrot 3.1.0 RELEASE_3_1_0-700-gdb77547
+    Copyright 2008-2011, The Perl Foundation
 
