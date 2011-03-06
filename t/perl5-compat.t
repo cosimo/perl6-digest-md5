@@ -27,5 +27,5 @@ for @cases -> $values, $md5 {
 
 }
 
-done_testing;
+done;
 
