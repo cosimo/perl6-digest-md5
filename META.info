@@ -1,0 +1,11 @@
+{
+    "name"        : "Digest::MD5",
+    "version"     : "0.03",
+    "description" : "Perl6 port of Perl5' Digest::MD5 module",
+    "depends"     : [],
+    "author"      : "Cosimo Streppone",
+    "authority"   : "cosimo",
+    "repo-type"   : "git",
+    "repo-url"    : "git://github.com/cosimo/perl6-digest-md5.git"
+}
+
