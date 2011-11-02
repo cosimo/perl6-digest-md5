@@ -14,10 +14,11 @@ class Digest::MD5:auth<cosimo>:ver<0.03> {
             .local pmc f, g, str
             str = find_lex '$str'
             f = get_root_global ['parrot'; 'Digest'], '_md5sum'
-            $P1 = f(str)
+            $S0 = repr_unbox_str str
+            $P1 = f($S0)
             g = get_root_global ['parrot'; 'Digest'], '_md5_hex'
             $S0 = g($P1)
-            %r = box $S0
+            %r =  perl6_box_str $S0
         };
 
         return $md5_hex;
