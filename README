@@ -12,11 +12,9 @@ Repository
   <http://github.com/cosimo/perl6-digest-md5>
 
 
-Current status (2011-03-06)
+Current status (2012-01-31)
 ===========================
 
-Works with:
-
-    This is Rakudo Perl 6, version 2011.02-43-gbfdd78d built on parrot 3.1.0 RELEASE_3_1_0-700-gdb77547
-    Copyright 2008-2011, The Perl Foundation
+Should work with latest (2012.01) release
+of Rakudo, the "nom" branch-based version.
 
