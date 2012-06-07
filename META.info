@@ -5,7 +5,6 @@
     "depends"     : [],
     "author"      : "Cosimo Streppone",
     "authority"   : "cosimo",
-    "repo-type"   : "git",
-    "repo-url"    : "git://github.com/cosimo/perl6-digest-md5.git"
+    "source-url"  : "git://github.com/cosimo/perl6-digest-md5.git"
 }
 
