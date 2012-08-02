@@ -2,11 +2,11 @@
 # Digest::MD5 Perl6 module
 #
 
-class Digest::MD5:auth<cosimo>:ver<0.04> {
+class Digest::MD5:auth<cosimo>:ver<0.05> {
 
     # Use .pir, not .pbc!
     # See https://trac.parrot.org/parrot/ticket/1694
-    pir::load_bytecode('Digest/MD5.pir');
+    pir::load_bytecode__vs('Digest/MD5.pir');
 
     multi method md5_hex (Str $str) {
 
