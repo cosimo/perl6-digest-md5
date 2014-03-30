@@ -7,22 +7,22 @@ class Digest::MD5:auth<cosimo>:ver<0.05> {
     sub infix:<⊞>(\x, \y)    {  (x + y) % 2**32 }
     sub infix:«<<<»(\x, \n)  { (x +< n) % 2**32 +| (x +> (32-n)) }
 
-    constant FGHI = -> \X, \Y, \Z { (X +& Y) +| (¬X +& Z) },
-                    -> \X, \Y, \Z { (X +& Z) +| (Y +& ¬Z) },
-                    -> \X, \Y, \Z { X +^ Y +^ Z           },
-                    -> \X, \Y, \Z { Y +^ (X +| ¬Z)        };
+    my \FGHI = -> \X, \Y, \Z { (X +& Y) +| (¬X +& Z) },
+               -> \X, \Y, \Z { (X +& Z) +| (Y +& ¬Z) },
+               -> \X, \Y, \Z { X +^ Y +^ Z           },
+               -> \X, \Y, \Z { Y +^ (X +| ¬Z)        };
 
-    constant S = (7, 12, 17, 22) xx 4,
-                 (5,  9, 14, 20) xx 4,
-                 (4, 11, 16, 23) xx 4,
-                 (6, 10, 15, 21) xx 4;
+    my \S = (7, 12, 17, 22) xx 4,
+            (5,  9, 14, 20) xx 4,
+            (4, 11, 16, 23) xx 4,
+            (6, 10, 15, 21) xx 4;
 
-    constant T = (floor(abs(sin($_ + 1)) * 2**32) for ^64);
+    my \T = (floor(abs(sin($_ + 1)) * 2**32) for ^64);
 
-    constant k = (   $_           for ^16),
-                 ((5*$_ + 1) % 16 for ^16),
-                 ((3*$_ + 5) % 16 for ^16),
-                 ((7*$_    ) % 16 for ^16);
+    my \k = (   $_           for ^16),
+            ((5*$_ + 1) % 16 for ^16),
+            ((3*$_ + 5) % 16 for ^16),
+            ((7*$_    ) % 16 for ^16);
 
     sub little-endian($w, $n, *@v) { (@v X+> ($w X* ^$n)) X% (2 ** $w) }
 
