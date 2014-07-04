@@ -5,7 +5,7 @@ use Shell::Command;
 class Build is Panda::Builder {
     method build($workdir) {
         rm_f("$workdir/lib/Digest/MD5.pm");
-        if $*VM<name> eq 'parrot' {
+        if $*VM.name eq 'parrot' {
             cp("$workdir/lib/Digest/MD5.pm.parrot", "$workdir/lib/Digest/MD5.pm");
         } else {
             cp("$workdir/lib/Digest/MD5.pm.perl", "$workdir/lib/Digest/MD5.pm");
