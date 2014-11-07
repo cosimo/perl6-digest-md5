@@ -20,7 +20,7 @@ class Digest::MD5:auth<cosimo>:ver<0.05> {
         ).flat;
 
 
-    my \T = (floor(abs(sin($_ + 1)) * 2**32) for ^64);
+    my \T = (floor(abs(sin($_ + 1)) * 2**32) for ^64).flat;
 
     my \k = (
             (   $_           for ^16),
