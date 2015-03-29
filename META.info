@@ -2,7 +2,14 @@
     "name"        : "Digest::MD5",
     "version"     : "0.05",
     "description" : "Perl6 port of Perl5' Digest::MD5 module",
-    "depends"     : [],
+    "build-depends" : [ ],
+    "test-depends" : [
+        "Test"
+    ],
+    "depends" : [ ],
+    "provides" : {
+        "Digest::MD5" : "lib/Digest/MD5.pm"
+    },
     "author"      : "Cosimo Streppone",
     "authority"   : "cosimo",
     "source-url"  : "git://github.com/cosimo/perl6-digest-md5.git"
