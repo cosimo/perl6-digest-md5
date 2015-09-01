@@ -19,12 +19,35 @@ for @cases -> $values, $md5 {
         Digest::MD5.md5_hex($values), $md5,
         "MD5 hex of '$values' must be '$md5' (static method)"
     );
-   
+
     is(
         $digest.md5_hex($values), $md5,
         "MD5 hex of '$values' must be '$md5' (instance method)"
     );
 
+
+    my Buf $md5_buf = Digest::MD5.md5_buf($values);
+    is $md5_buf.elems, 16, 'Length of buf is 16 bytes';
+
+    my Str $s = $md5;
+    $s ~~ m/(<[0..9A..Za..z]>**2)**16/;
+    my Buf $b .= new( map( {:16($_.Str)}, @($/[0][*])));
+    is-deeply(
+        $md5_buf.list, $b.list,
+        "MD5 binary of '$values' (static method)"
+    );
+
+
+    $md5_buf = $digest.md5_buf($values);
+    is $md5_buf.elems, 16, 'Length of buf is 16 bytes';
+
+    $s = $md5;
+    $s ~~ m/(<[0..9A..Za..z]>**2)**16/;
+    $b .= new( map( {:16($_.Str)}, @($/[0][*])));
+    is-deeply(
+        $md5_buf.list, $b.list,
+        "MD5 binary of '$values' (instance method)"
+    );
 }
 
 done;

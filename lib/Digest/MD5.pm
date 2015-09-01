@@ -62,4 +62,12 @@ class Digest::MD5:auth<cosimo>:ver<0.05> {
     multi method md5_hex(@str) {
         md5( @str.join.encode('ascii') ).list».fmt('%02x').join
     }
+
+    multi method md5_buf(Str $str --> Buf) {
+        md5( $str.encode('ascii') );
+    }
+
+    multi method md5_buf(@str --> Buf) {
+        md5( @str.join.encode('ascii') );
+    }
 }
