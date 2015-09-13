@@ -5,6 +5,8 @@
 use Test;
 use Digest::MD5;
 
+plan 18;
+
 my @cases = (
     "Hello World"  , 'b10a8db164e0754105b7a99be72e3fe5',
     "Hello World\n", 'e59ff97941044f85df5297e1c302d260',
@@ -49,6 +51,3 @@ for @cases -> $values, $md5 {
         "MD5 binary of '$values' (instance method)"
     );
 }
-
-done;
-
