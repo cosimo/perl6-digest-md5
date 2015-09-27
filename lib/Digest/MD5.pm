@@ -38,7 +38,7 @@ class Digest::MD5:auth<cosimo>:ver<0.05> {
         flat @padded.map({ :256[$^d,$^c,$^b,$^a] }), little-endian(32, 2, bits);
     }
 
-    sub md5-block(@H is rw, @X) {
+    sub md5-block(@H, @X) {
         my ($A, $B, $C, $D) = @H;
         for ^64 -> \i {
             my \f = FGHI[i div 16]($B, $C, $D);
