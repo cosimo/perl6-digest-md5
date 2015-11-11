@@ -47,6 +47,18 @@ as a hex string.
 Takes same arguments as `md5_hex`, except returns a
 [Buf](http://docs.perl6.org/type/Buf) instead of a string.
 
+### Subroutines
+
+### `Digest::MD5::md5`
+```perl6
+my $data = $str.encode('ascii');
+my $md5_buf = Digest::MD5::md5($data);
+
+    # returns Buf:0x<8d 77 7f 38 5d 3d fe c8 81 5d 20 f7 49 60 26 dc>
+```
+
+Takes a buffer or array as an argument. Returns a [Buf](http://docs.perl6.org/type/Buf).
+
 ### Repository
 
   http://github.com/cosimo/perl6-digest-md5
