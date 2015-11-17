@@ -5,12 +5,13 @@
 use Test;
 use Digest::MD5;
 
-plan 18;
+plan 24;
 
 my @cases = (
     "Hello World"  , 'b10a8db164e0754105b7a99be72e3fe5',
     "Hello World\n", 'e59ff97941044f85df5297e1c302d260',
     ["a", "b"],      '187ef4436122d1cc2f40dc2b92f0eba0',
+    "Zs\o[363]fia",  '3699acc0bae18c600c6baeb957e78193', # 8 bit
 );
 
 my $digest = Digest::MD5.new;
