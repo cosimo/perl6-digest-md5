@@ -4,6 +4,7 @@
 
 use Test;
 use Digest::MD5;
+use newline :lf;
 
 plan 24;
 
