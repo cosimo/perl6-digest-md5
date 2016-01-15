@@ -9,7 +9,7 @@ Cosimo Streppone (cosimo@cpan.org)
 
 ```perl6
     use Digest::MD5;
-    say Digest::MD5.new.md5_hex("My awesome data to hash");
+    say Digest::MD5.new.md5_hex('My awesome data to hash'.encode);
 ```
 
 ### Methods
@@ -25,10 +25,10 @@ Returns a new `Digest::MD5` object.
 #### `md5_hex`
 
 ```perl6
-    my $md5_hash = $d.md5_hex('data');
+    my $md5_hash = $d.md5_hex('data'.encode);
 
     my @data = "one", "two", "and more";
-    my $md5_hash = $d.md5_hex( @data );
+    my $md5_hash = $d.md5_hex( @data.map({ .encode }) );
 
     # returns string '009ef1defa9fa27032f9f52cdeda8698'
 ```
@@ -39,7 +39,7 @@ as a hex string.
 #### `md5_buf`
 
 ```perl6
-    my $md5_buf = $d.md5_buf('data');
+    my $md5_buf = $d.md5_buf('data'.encode);
 
     # returns Buf:0x<8d 77 7f 38 5d 3d fe c8 81 5d 20 f7 49 60 26 dc>
 ```
