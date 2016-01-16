@@ -9,10 +9,10 @@ use newline :lf;
 plan 24;
 
 my @cases = (
-    "Hello World".encode,       'b10a8db164e0754105b7a99be72e3fe5',
-    "Hello World\n".encode,     'e59ff97941044f85df5297e1c302d260',
-    ["a", "b"].map({.encode}),  '187ef4436122d1cc2f40dc2b92f0eba0',
-    "Zs\o[363]fia".encode,      'a74290c570b319042e5101e5efa63c4e', # 8 bit
+    "Hello World",       'b10a8db164e0754105b7a99be72e3fe5',
+    "Hello World\n",     'e59ff97941044f85df5297e1c302d260',
+    ["a", "b"],          '187ef4436122d1cc2f40dc2b92f0eba0',
+    "Zs\o[363]fia",      '3699acc0bae18c600c6baeb957e78193', # 8 bit
 );
 
 my $digest = Digest::MD5.new;

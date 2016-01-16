@@ -59,15 +59,23 @@ class Digest::MD5:auth<cosimo>:ver<0.05> {
         md5( $blob ).list».fmt('%02x').join
     }
 
+    multi method md5_hex(Str $str) {
+        $.md5_hex( $str.encode('latin-1') )
+    }
+
     multi method md5_hex(@blob) {
-        md5( [~] @blob ).list».fmt('%02x').join
+        $.md5_hex( [~] @blob )
     }
 
     multi method md5_buf(Blob $blob --> Buf) {
         md5( $blob );
     }
 
+    multi method md5_buf(Str $str --> Buf) {
+        $.md5_buf( $str.encode('latin-1') );
+    }
+
     multi method md5_buf(@blob --> Buf) {
-        md5( [~] @blob );
+        $.md5_buf( [~] @blob );
     }
 }
