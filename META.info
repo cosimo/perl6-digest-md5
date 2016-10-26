@@ -1,4 +1,5 @@
 {
+    "perl"        : "6.*",
     "name"        : "Digest::MD5",
     "version"     : "0.05",
     "description" : "Perl6 port of Perl5' Digest::MD5 module",
