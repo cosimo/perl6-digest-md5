@@ -55,19 +55,27 @@ class Digest::MD5:auth<cosimo>:ver<0.05> {
         Buf.new: little-endian(8, 4, @H)
     }
 
-    multi method md5_hex(Str $str) {
-        md5( $str.encode('latin-1') ).list».fmt('%02x').join
+    multi method md5_hex(Blob $blob) {
+        md5( $blob ).list».fmt('%02x').join
     }
 
-    multi method md5_hex(@str) {
-        md5( @str.join.encode('latin-1') ).list».fmt('%02x').join
+    multi method md5_hex(Str $str) {
+        $.md5_hex( $str.encode('latin-1') )
+    }
+
+    multi method md5_hex(@blob) {
+        $.md5_hex( [~] @blob )
+    }
+
+    multi method md5_buf(Blob $blob --> Buf) {
+        md5( $blob );
     }
 
     multi method md5_buf(Str $str --> Buf) {
-        md5( $str.encode('latin-1') );
+        $.md5_buf( $str.encode('latin-1') );
     }
 
-    multi method md5_buf(@str --> Buf) {
-        md5( @str.join.encode('latin-1') );
+    multi method md5_buf(@blob --> Buf) {
+        $.md5_buf( [~] @blob );
     }
 }
