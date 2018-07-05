@@ -13,6 +13,7 @@
     },
     "author"      : "Cosimo Streppone",
     "authority"   : "cosimo",
-    "source-url"  : "git://github.com/cosimo/perl6-digest-md5.git"
+    "source-url"  : "git://github.com/cosimo/perl6-digest-md5.git",
+    "tags"        : [ "CPAN5" ]
 }
 
