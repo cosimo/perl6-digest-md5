@@ -1,3 +1,4 @@
 Makefile
 *.pir
 blib
+.precomp
